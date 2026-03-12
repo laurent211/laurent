@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nyamwigura Secondary School</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f4f4f4;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #9e1b32;
+      color: #ffffff;
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .branding {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo-square {
+      border: 2px solid #ffffff;
+      padding: 5px 8px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+
+    .school-titles h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+      line-height: 0.9;
+    }
+
+    .school-titles span {
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+/* Navbar */
+.navbar{
+    background-color: #0a3d62;
+    padding: 10px 20px;
+}
+
+/* Logo */
+.logo{
+    display: inline-flex;
+    align-items: center;
+}
+
+.logo img{
+    width: 40px;
+    vertical-align: middle;
+}
+
+.logo span{
+    color: white;
+    font-weight: bold;
+    margin-left: 8px;
+    font-size: 14px;
+}
+
+/* Navigation links */
+.nav-links{
+    display: inline-block;
+    margin-left: 50px;
+}
+
+.nav-links a{
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 15px;
+}
+
+.nav-links a:hover{
+    color: yellow;
+}
+
+/* Button */
+.join-btn{
+    float: right;
+    background: magenta;
+    color: black;
+    padding: 7px 12px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+    .nav-toggle {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      z-index: 2000;
+    }
+
+    .nav-toggle div {
+      width: 25px;
+      height: 2px;
+      background-color: #ffffff;
+      transition: 0.3s;
+    }
+
+    .menu-backdrop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1500;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .menu-card {
+      background: white;
+      width: 90%;
+      max-width: 350px;
+      padding: 40px 20px;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      text-align: center;
+      transform: translateY(20px) scale(0.9);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .menu-backdrop.show { opacity: 1; visibility: visible; }
+    .menu-backdrop.show .menu-card { transform: translateY(0) scale(1); }
+
+    .menu-card a {
+      display: block;
+      color: #333;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin: 15px 0;
+      padding: 10px;
+      border-radius: 10px;
+      transition: all 0.2s;
+    }
+
+    .menu-card a:hover {
+      background-color: #9e1b32;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    main {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .welcome-box {
+      background: white;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    /* Department Section */
+    #departments {
+      margin-top: 50px;
+      text-align: center;
+    }
+
+    .dept-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin-top: 20px;
+    }
+
+    .dept-card {
+      background: white;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .dept-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    }
+
+    .dept-card::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(135deg, rgba(158,27,50,0.4), rgba(255,195,0,0.3));
+      transform: rotate(20deg);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .dept-card:hover::before {
+      opacity: 1;
+    }
+
+    .dept-card h3 {
+      color: #9e1b32;
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+    }
+
+    .dept-card p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin-bottom: 15px;
+      color: #555;
+    }
+
+    .dept-tag {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 5px 10px;
+      border-radius: 12px;
+      background: #9e1b32;
+      color: white;
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+
+    /* Teacher Section */
+    .teachers {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+      text-align: left;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease-in-out;
+    }
+
+    .dept-card.expanded .teachers {
+      max-height: 2000px;
+    }
+
+    .teacher-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+      border: 1px solid #eee;
+    }
+
+    .teacher-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+
+    .teacher-img {
+      width: 100%;
+      height: 140px;
+      border-radius: 10px;
+      object-fit: cover;
+      border: 2px solid #f0f0f0;
+    }
+
+    .teacher-card h4 {
+      margin-top: 12px;
+      color: #9e1b32;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .teacher-card p {
+      margin-top: 8px;
+      font-size: 0.85rem;
+      line-height: 1.4;
+      color: #666;
+    }
+
+    .view-teachers-btn {
+      margin-top: 15px;
+      padding: 8px 20px;
+      background: #9e1b32;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+    }
+
+    .view-teachers-btn:hover {
+      background: #7a1528;
+      transform: scale(1.02);
+    }
+
+    .teacher-count {
+      display: inline-block;
+      background: rgba(255,255,255,0.2);
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-size: 0.8rem;
+      margin-left: 5px;
+    }
+
+    /* Expanded state styles */
+    .dept-card.expanded .view-teachers-btn {
+      background: #2c3e50;
+    }
+
+    .dept-card.expanded .view-teachers-btn:hover {
+      background: #1a252f;
+    }
+
+    /* Department info */
+    .dept-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    @media (max-width: 768px) {
+      .dept-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .teacher-img {
+        height: 120px;
+      }
+    }
+
+   .footer{
+background:#222;
+color:white;
+margin-top:50px;
+}
+
+.footer-container{
+display:flex;
+justify-content:space-between;
+padding:40px;
+flex-wrap:wrap;
+}
+
+.footer-box{
+width:30%;
+}
+
+.footer-box h3{
+margin-bottom:15px;
+color:#f1c40f;
+}
+
+.footer-box p{
+line-height:1.6;
+}
+
+.footer-box ul{
+list-style:none;
+padding:0;
+}
+
+.footer-box ul li{
+margin-bottom:10px;
+}
+
+.footer-box ul li a{
+text-decoration:none;
+color:white;
+}
+
+.footer-box ul li a:hover{
+color:#f1c40f;
+}
+
+.footer-bottom{
+text-align:center;
+background:#111;
+padding:15px;
+font-size:14px;
+}
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+ <!-- NAVBAR -->
+
+<div class="navbar">
+
+<div class="logo">
+<img src="mm.jfif">
+<span>NYAMWIGURA<br>SECONDARY SCHOOL</span>
+</div>
+
+<div class="nav-links">
+<a href="#">Home</a>
+<a href="#">Academics</a>
+<a href="#">News & Events</a>
+<a href="#">Student Life</a>
+<a href="#">Contact</a>
+<a href="#">About</a>
+<a class="join-btn" href="#">Get Joining Instructions</a>
+
+</div>
+
+
+  <div class="menu-backdrop" id="menuBackdrop">
+    <div class="menu-card">
+      <h3 style="font-family: 'Playfair Display'; margin-bottom: 20px; color: #9e1b32;">Menu</h3>
+      <a href="home.html">Home</a>
+      <a href="#">About Us</a>
+      <a href="#">Admissions</a>
+      <a href="#departments">Departments</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+
+  <main>
+    <div class="welcome-box">
+      <h2>Welcome to Nyamwigura Secondary School</h2>
+      <p>We offer quality education with excellent departments. Click on any department to view all teachers.</p>
+    </div>
+
+    <!-- ====== School Departments ====== -->
+    <section id="departments">
+      <h2 style="margin-top: 40px;">School Departments</h2>
+      <p style="color: #666; margin-bottom: 20px;">Click on any department card to view all teachers</p>
+      <div class="dept-grid">
+
+        <!-- PHYSICS -->
+        <div class="dept-card">
+          <div class="dept-info">
+            <h3>PHYSICS</h3>
+            <span class="dept-tag">Science</span>
+          </div>
+          <p>Learn about motion, energy, electricity, and the universe.</p>
+          <button class="view-teachers-btn">
+            <i class="fas fa-users"></i> 
+            View All Teachers 
+            <span class="teacher-count">5</span>
+          </button>
+          
+          <div class="teachers">
+            <div class="teacher-card">
+              <img class="teacher-img" src="https://i.pravatar.cc/300?img=10" alt="Teacher">
+              <h4>Mr. John Mwanga</h4>
+              <p>Physics teacher with 12 years experience. Loves teaching through experiments.</p>
+            </div>
+            <div class="teacher-card">
+              <img class="teacher-img" src="https://i.pravatar.cc/300?img=11" alt="Teacher">
+              <h4>Mrs. Hilda Komba</h4>
+              <p>Expert in electricity and magnetism. Encourages students to join science clubs.</p>
+            </div>
+            <div class="teacher-card">
+              <img class="teacher-img" src="https://i.pravatar.cc/300?img=34" alt="Teacher">
+              <h4>Dr. Robert Mwita</h4>
+              <p>Quantum physics specialist with 15 years research experience.</p>
+            </div>
+            <div class="teacher-card">
+              <img class="teacher-img" src="https://i.pravatar.cc/300?img=35" alt="Teacher">
+              <h4>Mrs. Sarah Muro</h4>
+              <p>Thermodynamics expert, coordinates annual science fair.</p>
+            </div>
+            <div class="teacher-card">
+              <img class="teacher-img" src="https://i.pravatar.cc/300?img=36" alt="Teacher">
+              <h4>Mr. Joseph Kilonzo</h4>
+              <p>Specializes in modern physics and technology integration.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CHEMISTRY -->
+        <div class="dept-card">
+          <div class="dept-info">
+            <h3>CHEMISTRY</h3>
+            <span class="dept-tag">Science</span>
+          </div>
+          <p>Explore elements, reactions, compounds, and laboratory work.</p>
+          <button class="view-teachers-btn">
+            <i class="fas fa-users"></i> 
+            View All Teachers 
+            <span class="teacher-count">4</span>
+          </button>
+          
+          <div class="teachers">
+            <div class="teacher-card">
+              <img class="teacher-img" src="https://i.pravatar.cc/300?img=12" alt="Teacher">
+              <h4>Mrs. Jane Njoroge</h4>
+              <p>Passionate about lab work and chemical safety. Guides students in experiments.</p>
+            </div>
+            <div class="teacher-card">
+              <img class="teacher-img" src="https://i.pravatar.cc/300?img=13" alt="Teacher">
+              <h4>Mr. David Mushi</h4>
+              <p>Experienced in organic chemistry. Helps students understand complex concepts easily.</p>
+            </div>
+            <div class="teacher-card">
+              <img class="teacher-img" src="https://i.pravatar.cc/300?img=37" alt="Teacher">
+              <h4>Prof. Amina Yusuf</h4>
+              <p>Inorganic chemistry specialist with PhD in chemical engineering.</p>
+            </div>
+            <div class="teacher-card">
+              <img class="teacher-img" src="https://i.pravatar.cc/300?img=38" alt="Teacher">
+              <h4>Mr. Samuel Ngowi</h4>
+              <p>Analytical chemistry expert, heads the chemistry lab.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- BIOLOGY -->
+        <div class="dept-card">
+          <div class="dept-info">
+            <h3>BIOLOGY</h3>
+            <span class="dept-tag">Science</span>
+          </div>
+          <p>Study living organisms, health, plants, animals, and ecosystems.</p>
+          <button class="view-teachers-btn">
+            <i class="fas fa-users"></i> 
+            View All Teachers 
+            <span class="teacher-count">4</span>
+          </button>
+          
+          <div class="teachers">
+            <div class="teacher-card">
+              <img class="teacher-img" src="https://i.pravatar.cc/300?img=14" alt="Teacher">
+              <h4>Mr. Peter Kimaro</h4>
+              <p>Specialist in human biology. Encourages students to explore health sciences.</p>
+            </div>
+            <div class="teacher-card">
+              <img class="teacher-img" src="https://i.pravatar.cc/300?img=15" alt="Teacher">
+              <h4>Mrs. Grace Mbeya</h4>
+              <p>Expert in ecology and conservation. Loves teaching through field visits.</p>
+            </div>
+            <div class="teacher-card">
+              <img class="teacher-img" src="https://i.pravatar.cc/300?img=39" alt="Teacher">
+              <h4>Dr. Elizabeth Mrema</h4>
+              <p>Molecular biology specialist with focus on genetics.</p>
+            </div>
+            <div class="teacher-card">
+              <img class="teacher-img" src="https://i.pravatar.cc/300?img=40" alt="Teacher">
+              <h4>Mr. James Simba</h4>
+              <p>Botany expert, manages the school greenhouse and garden.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- MATHEMATICS -->
+        <div class="dept-card">
+          <div class="dept-info">
+            <h3>MATHEMATICS</h3>
+            <span class="dept-tag">Core</span>
+          </div>
+          <p>Algebra, Geometry, Calculus, and problem solving skills.</p>
+          <button class="view-teachers-btn">
+            <i class="fas fa-users"></i> 
+            View All Teachers 
+            <span class="teacher-count">4</span>
+          </button>
+          
+          <div class="teachers">
+            <div class="teacher-card">
+              <img class="teacher-img" src="https://i.pravatar.cc/300?img=16" alt="Teacher">
+              <h4>Mr. Daniel Komba</h4>
+              <p>Math teacher with strong problem-solving skills. Makes learning fun and easy.</p>
+            </div>
+            <div class="teacher-card">
+              <img class="teacher-img" src="https://i.pravatar.cc/300?img=17" alt="Teacher">
+              <h4>Mrs. Ruth Chuwa</h4>
+              <p>Focuses on exam preparation and improving students' math confidence.</p>
+            </div>
+            <div class="teacher-card">
+              <img class="teacher-img" src="https://i.pravatar.cc/300?img=41" alt="Teacher">
+              <h4>Mr. Thomas Omondi</h4>
+              <p>Advanced calculus and statistics specialist.</p>
+            </div>
+            <div class="teacher-card">
+              <img class="teacher-img" src="https://i.pravatar.cc/300?img=42" alt="Teacher">
+              <h4>Mrs. Caroline Mwangi</h4>
+              <p>Geometry expert, coordinates math olympiad team.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- COMPUTER SCIENCE -->
+        <div class="dept-card">
+          <div class="dept-info">
+            <h3>COMPUTER SCIENCE</h3>
+            <span class="dept-tag">Tech</span>
+          </div>
+          <p>Learn programming, software, ICT, and modern technology skills.</p>
+          <button class="view-teachers-btn">
+            <i class="fas fa-users"></i> 
+            View All Teachers 
+            <span class="teacher-count">4</span>
+          </button>
+          
+          <div class="teachers">
+            <div class="teacher-card">
+              <img class="teacher-img" src="https://i.pravatar.cc/300?img=18" alt="Teacher">
+              <h4>Mr. Samuel Mwinyi</h4>
+              <p>Programming expert who teaches coding using practical projects.</p>
+            </div>
+            <div class="teacher-card">
+              <img class="teacher-img" src="https://i.pravatar.cc/300?img=19" alt="Teacher">
+              <h4>Mrs. Asha Mohamed</h4>
+              <p>ICT specialist focusing on modern technology and digital literacy.</p>
+            </div>
+            <div class="teacher-card">
+              <img class="teacher-img" src="https://i.pravatar.cc/300?img=43" alt="Teacher">
+              <h4>Mr. Paul Ochieng</h4>
+              <p>Database and networking specialist with industry experience.</p>
+            </div>
+            <div class="teacher-card">
+              <img class="teacher-img" src="https://i.pravatar.cc/300?img=44" alt="Teacher">
+              <h4>Ms. Linda Nkrumah</h4>
+              <p>Web development and cybersecurity expert.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ECONOMICS -->
+        <div class="dept-card">
+          <div class="dept-info">
+            <h3>ECONOMICS</h3>
+            <span class="dept-tag">Business</span>
+          </div>
+          <p>Study markets, business, money, and financial systems.</p>
+          <button class="view-teachers-btn">
+            <i class="fas fa-users"></i> 
+            View All Teachers 
+            <span class="teacher-count">4</span>
+          </button>
+          
+          <div class="teachers">
+            <div class="teacher-card">
+              <img class="teacher-img" src="https://i.pravatar.cc/300?img=20" alt="Teacher">
+              <h4>Mr. Frank Nyong'o</h4>
+              <p>Economics teacher with experience in finance and business management.</p>
+            </div>
+            <div class="teacher-card">
+              <img class="teacher-img" src="https://i.pravatar.cc/300?img=21" alt="Teacher">
+              <h4>Mrs. Beatrice Kimani</h4>
+              <p>Helps students understand markets and how economies work in real life.</p>
+            </div>
+            <div class="teacher-card">
+              <img class="teacher-img" src="https://i.pravatar.cc/300?img=45" alt="Teacher">
+              <h4>Dr. Charles Otieno</h4>
+              <p>Macroeconomics specialist with banking background.</p>
+            </div>
+            <div class="teacher-card">
+              <img class="teacher-img" src="https://i.pravatar.cc/300?img=46" alt="Teacher">
+              <h4>Ms. Faith Wambui</h4>
+              <p>Development economics and international trade expert.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- GEOGRAPHY -->
+        <div class="dept-card">
+          <div class="dept-info">
+            <h3>GEOGRAPHY</h3>
+            <span class="dept-tag">Social Science</span>
+          </div>
+          <p>Learn about earth, maps, environment, and human impact.</p>
+          <button class="view-teachers-btn">
+            <i class="fas fa-users"></i> 
+            View All Teachers 
+            <span class="teacher-count">4</span>
+          </button>
+          
+          <div class="teachers">
+            <div class="teacher-card">
+              <img class="teacher-img" src="https://i.pravatar.cc/300?img=22" alt="Teacher">
+              <h4>Mr. John Lema</h4>
+              <p>Specialist in maps and environmental studies. Loves field trips.</p>
+            </div>
+            <div class="teacher-card">
+              <img class="teacher-img" src="https://i.pravatar.cc/300?img=23" alt="Teacher">
+              <h4>Mrs. Mary Mwita</h4>
+              <p>Teaches human geography and community development topics.</p>
+            </div>
+            <div class="teacher-card">
+              <img class="teacher-img" src="https://i.pravatar.cc/300?img=47" alt="Teacher">
+              <h4>Mr. Hassan Ali</h4>
+              <p>Physical geography and climatology specialist.</p>
+            </div>
+            <div class="teacher-card">
+              <img class="teacher-img" src="https://i.pravatar.cc/300?img=48" alt="Teacher">
+              <h4>Ms. Grace Ndungu</h4>
+              <p>Urban planning and GIS technology expert.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- GENERAL STUDIES -->
+        <div class="dept-card">
+          <div class="dept-info">
+            <h3>GENERAL STUDIES</h3>
+            <span class="dept-tag">Social Studies</span>
+          </div>
+          <p>Learn about society, citizenship, morals, and community.</p>
+          <button class="view-teachers-btn">
+            <i class="fas fa-users"></i> 
+            View All Teachers 
+            <span class="teacher-count">4</span>
+          </button>
+          
+          <div class="teachers">
+            <div class="teacher-card">
+              <img class="teacher-img" src="https://i.pravatar.cc/300?img=24" alt="Teacher">
+              <h4>Mrs. Alice Ndalama</h4>
+              <p>Teaches citizenship and social responsibility. Very active in community programs.</p>
+            </div>
+            <div class="teacher-card">
+              <img class="teacher-img" src="https://i.pravatar.cc/300?img=25" alt="Teacher">
+              <h4>Mr. Benard Sanga</h4>
+              <p>Expert in social studies and student leadership programs.</p>
+            </div>
+            <div class="teacher-card">
+              <img class="teacher-img" src="https://i.pravatar.cc/300?img=49" alt="Teacher">
+              <h4>Ms. Susan Mwenda</h4>
+              <p>Ethics and moral philosophy specialist.</p>
+            </div>
+            <div class="teacher-card">
+              <img class="teacher-img" src="https://i.pravatar.cc/300?img=50" alt="Teacher">
+              <h4>Mr. Joseph Mwas</h4>
+              <p>Community development and civic education expert.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- HISTORY -->
+        <div class="dept-card">
+          <div class="dept-info">
+            <h3>HISTORY</h3>
+            <span class="dept-tag">Humanities</span>
+          </div>
+          <p>Study past events, nations, cultures, and human progress.</p>
+          <button class="view-teachers-btn">
+            <i class="fas fa-users"></i> 
+            View All Teachers 
+            <span class="teacher-count">4</span>
+          </button>
+          
+          <div class="teachers">
+            <div class="teacher-card">
+              <img class="teacher-img" src="https://i.pravatar.cc/300?img=26" alt="Teacher">
+              <h4>Mr. Daniel Mtemi</h4>
+              <p>History teacher with a passion for African history and heritage.</p>
+            </div>
+            <div class="teacher-card">
+              <img class="teacher-img" src="https://i.pravatar.cc/300?img=27" alt="Teacher">
+              <h4>Mrs. Janet Mbele</h4>
+              <p>Teaches world history and encourages critical thinking.</p>
+            </div>
+            <div class="teacher-card">
+              <img class="teacher-img" src="https://i.pravatar.cc/300?img=51" alt="Teacher">
+              <h4>Dr. Musa Abdi</h4>
+              <p>Ancient civilizations and archaeology specialist.</p>
+            </div>
+            <div class="teacher-card">
+              <img class="teacher-img" src="https://i.pravatar.cc/300?img=52" alt="Teacher">
+              <h4>Ms. Rose Chale</h4>
+              <p>Modern history and political systems expert.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- KISWAHILI -->
+        <div class="dept-card">
+          <div class="dept-info">
+            <h3>KISWAHILI</h3>
+            <span class="dept-tag">Language</span>
+          </div>
+          <p>Language, literature, communication, and cultural studies.</p>
+          <button class="view-teachers-btn">
+            <i class="fas fa-users"></i> 
+            View All Teachers 
+            <span class="teacher-count">4</span>
+          </button>
+          
+          <div class="teachers">
+            <div class="teacher-card">
+              <img class="teacher-img" src="https://i.pravatar.cc/300?img=28" alt="Teacher">
+              <h4>Mrs. Fatuma Juma</h4>
+              <p>Expert in Kiswahili language and grammar. Encourages reading culture.</p>
+            </div>
+            <div class="teacher-card">
+              <img class="teacher-img" src="https://i.pravatar.cc/300?img=29" alt="Teacher">
+              <h4>Mr. Mohamed Said</h4>
+              <p>Teaches communication skills and Kiswahili composition.</p>
+            </div>
+            <div class="teacher-card">
+              <img class="teacher-img" src="https://i.pravatar.cc/300?img=53" alt="Teacher">
+              <h4>Ms. Zainab Omar</h4>
+              <p>Kiswahili linguistics and phonetics specialist.</p>
+            </div>
+            <div class="teacher-card">
+              <img class="teacher-img" src="https://i.pravatar.cc/300?img=54" alt="Teacher">
+              <h4>Mr. Rajab Suleiman</h4>
+              <p>Swahili culture and oral traditions expert.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- FASIHI YA KISWAHILI -->
+        <div class="dept-card">
+          <div class="dept-info">
+            <h3>FASIHI YA KISWAHILI</h3>
+            <span class="dept-tag">Language</span>
+          </div>
+          <p>Study Kiswahili literature, poetry, and drama.</p>
+          <button class="view-teachers-btn">
+            <i class="fas fa-users"></i> 
+            View All Teachers 
+            <span class="teacher-count">4</span>
+          </button>
+          
+          <div class="teachers">
+            <div class="teacher-card">
+              <img class="teacher-img" src="https://i.pravatar.cc/300?img=30" alt="Teacher">
+              <h4>Mr. Joseph Kileo</h4>
+              <p>Literature expert with focus on Kiswahili poetry and drama.</p>
+            </div>
+            <div class="teacher-card">
+              <img class="teacher-img" src="https://i.pravatar.cc/300?img=31" alt="Teacher">
+              <h4>Mrs. Naomi Baraka</h4>
+              <p>Teaches literary analysis and creative writing in Kiswahili.</p>
+            </div>
+            <div class="teacher-card">
+              <img class="teacher-img" src="https://i.pravatar.cc/300?img=55" alt="Teacher">
+              <h4>Dr. Salma Mwinyi</h4>
+              <p>Classical Swahili literature specialist.</p>
+            </div>
+            <div class="teacher-card">
+              <img class="teacher-img" src="https://i.pravatar.cc/300?img=56" alt="Teacher">
+              <h4>Mr. Juma Hassan</h4>
+              <p>Modern Swahili novels and short stories expert.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- LANGUAGE -->
+        <div class="dept-card">
+          <div class="dept-info">
+            <h3>LANGUAGE</h3>
+            <span class="dept-tag">Language</span>
+          </div>
+          <p>Study language skills, communication, and grammar.</p>
+          <button class="view-teachers-btn">
+            <i class="fas fa-users"></i> 
+            View All Teachers 
+            <span class="teacher-count">4</span>
+          </button>
+          
+          <div class="teachers">
+            <div class="teacher-card">
+              <img class="teacher-img" src="https://i.pravatar.cc/300?img=32" alt="Teacher">
+              <h4>Mr. Elias Komba</h4>
+              <p>Teaches language skills and public speaking. Focuses on communication.</p>
+            </div>
+            <div class="teacher-card">
+              <img class="teacher-img" src="https://i.pravatar.cc/300?img=33" alt="Teacher">
+              <h4>Mrs. Veronica Nuru</h4>
+              <p>Helps students improve reading and writing skills using modern methods.</p>
+            </div>
+            <div class="teacher-card">
+              <img class="teacher-img" src="https://i.pravatar.cc/300?img=57" alt="Teacher">
+              <h4>Ms. Emily Chebet</h4>
+              <p>English linguistics and phonology specialist.</p>
+            </div>
+            <div class="teacher-card">
+              <img class="teacher-img" src="https://i.pravatar.cc/300?img=58" alt="Teacher">
+              <h4>Mr. Peter Langat</h4>
+              <p>Creative writing and advanced composition expert.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+<footer class="footer">
+
+<div class="footer-container">
+
+<div class="footer-box">
+<h3>About Nyamwigura</h3>
+<p>
+Nyamwigura Secondary School provides quality education that
+develops knowledge, discipline and leadership among students.
+</p>
+</div>
+
+<div class="footer-box">
+<h3>Quick Links</h3>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="academics.html">Academics</a></li>
+<li><a href="news.html">News & Events</a></li>
+<li><a href="students.html">Student Life</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</div>
+
+<div class="footer-box">
+<h3>Contact Info</h3>
+<p>?? Mara, Tanzania</p>
+<p>?? +255 755 297 005</p>
+<p>? Nyamwigura-2012@yahoo.com</p>
+</div>
+
+</div>
+
+<div class="footer-bottom">
+<p>© 2026 Nyamwigura Secondary School | All Rights Reserved</p>
+</div>
+
+</footer>
+
+  <script>
+    // Menu toggle functionality
+    const menuBtn = document.getElementById('menuBtn');
+    const menuBackdrop = document.getElementById('menuBackdrop');
+
+    menuBtn.addEventListener('click', (e) => {
+      menuBackdrop.classList.toggle('show');
+      e.stopPropagation();
+    });
+
+    document.querySelectorAll('.menu-card a').forEach(link => {
+      link.addEventListener('click', () => {
+        menuBackdrop.classList.remove('show');
+      });
+    });
+
+    window.addEventListener('click', (e) => {
+      if (e.target === menuBackdrop) {
+        menuBackdrop.classList.remove('show');
+      }
+    });
+
+    // Department card expansion functionality
+    document.querySelectorAll('.dept-card').forEach(card => {
+      const viewBtn = card.querySelector('.view-teachers-btn');
+      const teachersContainer = card.querySelector('.teachers');
+      const teacherCount = card.querySelector('.teacher-count');
+      
+      // Count teachers for display
+      const teacherCards = teachersContainer.querySelectorAll('.teacher-card');
+      teacherCount.textContent = teacherCards.length;
+      
+      // Expand/collapse on button click
+      viewBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        card.classList.toggle('expanded');
+        
+        // Change button text and icon
+        if (card.classList.contains('expanded')) {
+          viewBtn.innerHTML = '<i class="fas fa-eye-slash"></i> Show Less <span class="teacher-count">' + teacherCards.length + '</span>';
+        } else {
+          viewBtn.innerHTML = '<i class="fas fa-users"></i> View All Teachers <span class="teacher-count">' + teacherCards.length + '</span>';
+        }
+      });
+      
+      // Expand/collapse on card click (except button)
+      card.addEventListener('click', (e) => {
+        if (!e.target.closest('.view-teachers-btn') && !e.target.closest('.teacher-card')) {
+          card.classList.toggle('expanded');
+          
+          // Change button text and icon
+          if (card.classList.contains('expanded')) {
+            viewBtn.innerHTML = '<i class="fas fa-eye-slash"></i> Show Less <span class="teacher-count">' + teacherCards.length + '</span>';
+          } else {
+            viewBtn.innerHTML = '<i class="fas fa-users"></i> View All Teachers <span class="teacher-count">' + teacherCards.length + '</span>';
+          }
+        }
+      });
+    });
+
+    // Close expanded cards when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.dept-card')) {
+        document.querySelectorAll('.dept-card.expanded').forEach(card => {
+          card.classList.remove('expanded');
+          const viewBtn = card.querySelector('.view-teachers-btn');
+          const teacherCards = card.querySelectorAll('.teacher-card').length;
+          viewBtn.innerHTML = '<i class="fas fa-users"></i> View All Teachers <span class="teacher-count">' + teacherCards + '</span>';
+        });
+      }
+    });
+
+    // Close expanded cards with Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.dept-card.expanded').forEach(card => {
+          card.classList.remove('expanded');
+          const viewBtn = card.querySelector('.view-teachers-btn');
+          const teacherCards = card.querySelectorAll('.teacher-card').length;
+          viewBtn.innerHTML = '<i class="fas fa-users"></i> View All Teachers <span class="teacher-count">' + teacherCards + '</span>';
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>

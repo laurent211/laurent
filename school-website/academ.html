@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nyamwigura Secondary School | Rasmi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ====== 1. CSS: STYLE ZA MSINGI ====== */
+        :root {
+            --school-blue: #003366; /* Navy Blue ya Kishule */
+            --school-gold: #FFD700; /* Dhahabu kwa ufaulu */
+            --bg-light: #f4f7f6;
+            --text-dark: #333;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* ====== 2. CSS: HEADER NA NAVBAR ====== */
+        header {
+            /* Bendera ya Tanzania kama Background yenye giza kidogo (Overlay) */
+            background: linear-gradient(rgba(0, 51, 102, 0.8), rgba(0, 51, 102, 0.7)), 
+                        url('https://upload.wikimedia.org/wikipedia/commons/3/3b/Flag_of_Tanzania.svg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--white);
+            padding-bottom: 80px;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(5px);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 3px solid var(--school-gold);
+            object-fit: cover;
+        }
+
+        .logo span {
+            font-weight: 800;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            line-height: 1.2;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--school-gold);
+        }
+
+        .join-btn {
+            background: var(--school-gold);
+            color: var(--school-blue) !important;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: bold !important;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .welcome-box {
+            text-align: center;
+            padding: 100px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .welcome-box h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 4px 10px rgba(0,0,0,0.3);
+        }
+
+        /* ====== 3. CSS: STATS BAR (COUNTER) ====== */
+        .stats-bar {
+            background: var(--white);
+            padding: 60px 5%;
+            margin-top: -50px; /* Inapandiana na Header */
+            border-radius: 15px;
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 10;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item i {
+            font-size: 2.5rem;
+            color: var(--school-blue);
+            margin-bottom: 15px;
+        }
+
+        .stat-item h2 {
+            font-size: 2.5rem;
+            color: var(--school-blue);
+            margin-bottom: 5px;
+        }
+
+        .stat-item p {
+            font-weight: 600;
+            color: #666;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+
+        /* ====== 4. CSS: DEPARTMENTS ====== */
+        #departments {
+            padding: 80px 5%;
+            background: #f9f9f9;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--school-blue);
+        }
+
+        .dept-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .dept-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-top: 6px solid var(--school-blue);
+            transition: 0.3s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dept-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .dept-info h3 {
+            color: var(--school-blue);
+            margin-bottom: 10px;
+        }
+
+        .dept-tag {
+            background: #e1e8f0;
+            color: var(--school-blue);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+
+        .view-teachers-btn {
+            width: 100%;
+            margin-top: 20px;
+            padding: 12px;
+            border: 2px solid var(--school-blue);
+            background: transparent;
+            color: var(--school-blue);
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .dept-card.expanded .view-teachers-btn {
+            background: var(--school-blue);
+            color: var(--white);
+        }
+
+        /* Sehemu ya Walimu (Hidden by default) */
+        .teachers {
+            display: none;
+            margin-top: 25px;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .dept-card.expanded .teachers {
+            display: block;
+        }
+
+        .teacher-card {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            background: #fcfcfc;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .teacher-img {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            border: 2px solid var(--school-gold);
+            object-fit: cover;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ====== 5. CSS: FOOTER ====== */
+        footer {
+            background: var(--school-blue);
+            color: var(--white);
+            padding: 60px 5% 20px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-box h3 {
+            color: var(--school-gold);
+            margin-bottom: 20px;
+        }
+
+        .footer-box ul { list-style: none; }
+        .footer-box ul li { margin-bottom: 10px; }
+        .footer-box ul li a { color: #ccc; text-decoration: none; }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links { display: none; } /* Kwa simu, unaweza kuongeza hamburger menu */
+            .welcome-box h2 { font-size: 2rem; }
+        }
+:root {
+        --school-blue: #003366;
+        --school-gold: #FFD700;
+        --tz-green: #1eb53a;
+        --tz-black: #000000;
+        --tz-blue: #00a3dd;
+        --tz-yellow: #fcd116;
+    }
+
+    header {
+        position: relative;
+        /* Rangi za Taifa kama Background */
+        background: linear-gradient(
+            135deg, 
+            var(--tz-green) 0%, var(--tz-green) 40%, 
+            var(--tz-yellow) 40%, var(--tz-yellow) 45%, 
+            var(--tz-black) 45%, var(--tz-black) 55%, 
+            var(--tz-yellow) 55%, var(--tz-yellow) 60%, 
+            var(--tz-blue) 60%, var(--tz-blue) 100%
+        );
+        color: white;
+        padding-bottom: 150px; /* Nafasi kwa ajili ya wimbi */
+        overflow: hidden;
+    }
+
+    /* Overlay ya kufanya maandishi yasomeke vizuri */
+    header::after {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0, 0, 0, 0.25);
+        z-index: 1;
+    }
+
+    .navbar, .welcome-box {
+        position: relative;
+        z-index: 10; /* Hakikisha vipo juu ya overlay na wimbi */
+    }
+
+    /* CSS ya Wimbi (Wave) */
+    .wave-container {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        line-height: 0;
+        z-index: 5;
+    }
+
+    .wave-container svg {
+        position: relative;
+        display: block;
+        width: calc(100% + 1.3px);
+        height: 80px;
+    }
+
+    .wave-container .shape-fill {
+        fill: #f4f7f6; /* Lazima ifanane na rangi ya background ya body yako */
+    }
+
+    /* Animation ya kupepea kidogo */
+    @keyframes wave-move {
+        0% { transform: translateX(0); }
+        50% { transform: translateX(-25px); }
+        100% { transform: translateX(0); }
+    }
+
+    .wave-container svg {
+        animation: wave-move 5s ease-in-out infinite;
+    }
+    </style>
+</head>
+<body>
+
+   <header>
+  
+  <nav class="navbar">
+       
+ <div class="logo">
+       
+     <img src="nembo.jfif" alt="Logo">
+     
+       <span>NYAMWIGURA<br>SECONDARY SCHOOL</span>
+  
+      </div>
+     
+   <div class="nav-links">
+       
+     <a href="#">Home</a>
+          
+
+  <a href="#">Academics</a>
+       
+     <a class="join-btn" href="#">Joining Instructions</a>
+   
+     </div>
+  
+  </nav>
+
+   
+ <div class="welcome-box" style="text-align: center; padding: 60px 20px;">
+   
+     <h2 style="font-size: 2.8rem; text-shadow: 2px 2px 8px rgba(0,0,0,0.5);">Nyamwigura Secondary School</h2>
+   
+     <p style="font-size: 1.2rem; font-weight: 500;">"Elimu ni Mwanga wa Maisha"</p>
+   
+ </div>
+
+   
+ <div class="wave-container">
+    
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+   
+         <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C57.34,106.59,120.4,116.32,180,111.39,240.24,106.41,273.61,65.3,321.39,56.44Z" class="shape-fill"></path>
+    
+    </svg>
+    
+</div>
+
+</header>
+
+    <section class="stats-bar">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <i class="fas fa-user-tie"></i>
+                <h2 class="counter" data-target="15">0</h2>
+                <p>Qualified Teachers</p>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-user-graduate"></i>
+                <h2 class="counter" data-target="800">0</h2>
+                <p>Current Students</p>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-users"></i>
+                <h2 class="counter" data-target="25">0</h2>
+                <p>Staff Workers</p>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-chart-line"></i>
+                <h2 class="counter" data-target="100">0</h2>
+                <p>Pass Rate (%)</p>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <section id="departments">
+            <div class="section-title">
+                <h2>School Departments</h2>
+                <p>Bofya kila kadi kuona walimu waliopo kila idara</p>
+            </div>
+
+            <div class="dept-grid">
+                <div class="dept-card" onclick="toggleDept(this)">
+                    <div class="dept-info">
+                        <h3>PHYSICS</h3>
+                        <span class="dept-tag">Science</span>
+                        <p style="margin-top:10px">Maajabu ya asili, mwendo na nishati.</p>
+                    </div>
+                    <button class="view-teachers-btn">View Teachers (5)</button>
+                    
+                    <div class="teachers">
+                        <div class="teacher-card">
+                            <img src="https://i.pravatar.cc/150?u=1" class="teacher-img">
+                            <div>
+                                <h4>Mr. John Mwanga</h4>
+                                <p style="font-size:0.8rem">Head of Department</p>
+                            </div>
+                        </div>
+                        <div class="teacher-card">
+                            <img src="https://i.pravatar.cc/150?u=2" class="teacher-img">
+                            <div>
+                                <h4>Mrs. Hilda Komba</h4>
+                                <p style="font-size:0.8rem">Senior Teacher</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dept-card" onclick="toggleDept(this)">
+                    <div class="dept-info">
+                        <h3>CHEMISTRY</h3>
+                        <span class="dept-tag">Science</span>
+                        <p style="margin-top:10px">Majaribio ya kikemia na elimu ya vitu.</p>
+                    </div>
+                    <button class="view-teachers-btn">View Teachers (4)</button>
+                    
+                    <div class="teachers">
+                        <div class="teacher-card">
+                            <img src="https://i.pravatar.cc/150?u=12" class="teacher-img">
+                            <div>
+                                <h4>Mrs. Jane Njoroge</h4>
+                                <p style="font-size:0.8rem">Chemistry Specialist</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dept-card" onclick="toggleDept(this)">
+                    <div class="dept-info">
+                        <h3>BIOLOGY</h3>
+                        <span class="dept-tag">Science</span>
+                        <p style="margin-top:10px">Elimu ya viumbe hai na mazingira.</p>
+                    </div>
+                    <button class="view-teachers-btn">View Teachers (4)</button>
+                    
+                    <div class="teachers">
+                        <div class="teacher-card">
+                            <img src="https://i.pravatar.cc/150?u=14" class="teacher-img">
+                            <div>
+                                <h4>Mr. Peter Kimaro</h4>
+                                <p style="font-size:0.8rem">Biology Expert</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-box">
+                <h3>About Nyamwigura</h3>
+                <p>Tunatoa elimu bora inayozingatia maarifa, nidhamu na uongozi kwa wanafunzi wetu ili kuwaandaa na maisha ya baadaye.</p>
+            </div>
+            <div class="footer-box">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Admission</a></li>
+                    <li><a href="#">School News</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-box">
+                <h3>Waswasiliana Nasi</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Mara, Tanzania</p>
+                <p><i class="fas fa-phone"></i> +255 755 297 005</p>
+                <p><i class="fas fa-envelope"></i> Nyamwigura-2012@yahoo.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Nyamwigura Secondary School | Designed for Excellence</p>
+        </div>
+    </footer>
+
+    <script>
+        // 1. Kazi ya kuhesabu namba (Animated Counter)
+        const counters = document.querySelectorAll('.counter');
+        
+        const runCounter = () => {
+            counters.forEach(counter => {
+                counter.innerText = '0';
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText;
+                    const speed = 200; // Kadiri namba inavyokuwa kubwa, ongeza spidi hapa
+                    
+                    const increment = target / speed;
+
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + increment);
+                        setTimeout(updateCount, 15);
+                    } else {
+                        counter.innerText = target + (target === 100 ? "%" : "+");
+                    }
+                };
+                updateCount();
+            });
+        };
+
+        // Run counter pindi ukurasa unapofunguka
+        window.onload = runCounter;
+
+        // 2. Kazi ya kufungua idara (Toggle Departments)
+        function toggleDept(card) {
+            // Funga kadi nyingine zilizofunguka (Optional)
+            // document.querySelectorAll('.dept-card').forEach(c => {
+            //     if(c !== card) c.classList.remove('expanded');
+            // });
+
+            card.classList.toggle('expanded');
+            
+            const btn = card.querySelector('.view-teachers-btn');
+            if(card.classList.contains('expanded')) {
+                btn.innerText = "Hide Teachers";
+            } else {
+                const count = card.querySelectorAll('.teacher-card').length;
+                btn.innerText = "View Teachers (" + count + ")";
+            }
+        }
+    </script>
+</body>
+</html>

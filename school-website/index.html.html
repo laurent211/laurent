@@ -1,0 +1,1574 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+   <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NYAMWIGURA SECONDARY SCHOOL</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+
+.hero-section {
+    position: relative;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* 1. Background ya Rangi za Taifa */
+.tz-background-colors {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, 
+        #1EB53A 0%, #1EB53A 40%, 
+        #FCD116 40%, #FCD116 45%, 
+        #000000 45%, #000000 55%, 
+        #FCD116 55%, #FCD116 60%, 
+        #00A3E0 60%, #00A3E0 100%);
+    z-index: 1;
+}
+
+/* 2. Slider ya Picha (Inakaa juu ya rangi kidogo) */
+.hero-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: 2;
+    /* Dakika 4 kila picha (picha 3 = 720s) */
+    animation: imageFade 720s infinite;
+    /* Tunapunguza mwangaza ili rangi za bendera zionekane pembeni */
+    opacity: 0.9; 
+}
+
+/* 3. Boksi la Maandishi lenye Border ya Dhahabu */
+.hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.hero-border-box {
+    border: 4px double #D4AF37; /* Double line ya dhahabu */
+    background: rgba(0, 0, 0, 0.6); /* Giza kidogo ili maandishi yasomeke */
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    color: white;
+    text-align: center;
+}
+
+.hero-border-box h2 {
+    font-size: 3rem;
+    color: #FCD116; /* Rangi ya dhahabu/njano kwenye kichwa cha habari */
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+
+.hero-border-box p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+/* Animation ya picha (Dakika 4 = 240s) */
+@keyframes imageFade {
+    0%, 33.33% { background-image: url('picha1.jpg'); }
+    33.34%, 66.66% { background-image: url('picha2.jpg'); }
+    66.67%, 100% { background-image: url('picha3.jpg'); }
+}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+background:#f6f7f8;
+color:#333;
+}
+
+/* TOP BAR */
+
+.topbar{
+background:#7b2f2f;
+color:white;
+padding:8px 10%;
+display:flex;
+justify-content:space-between;
+font-size:14px;
+}
+
+.topbar a{
+color:#ffd65c;
+margin-left:20px;
+text-decoration:none;
+}
+
+/* NAVBAR */
+
+.navbar{
+background:white;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 10%;
+box-shadow:0 2px 8px rgba(0,0,0,0.05);
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+font-weight:bold;
+}
+
+.logo img{
+width:40px;
+}
+
+.nav-links a{
+margin:0 12px;
+text-decoration:none;
+color:#333;
+font-weight:500;
+}
+
+.join-btn{
+background:#2e6df6;
+color:white;
+padding:10px 18px;
+border-radius:25px;
+text-decoration:none;
+}
+        :root {
+            --primary-color: #9e1b32;
+            --secondary-color: #2c3e50;
+            --accent-color: #f39c12;
+            --light-color: #f8f9fa;
+            --dark-color: #1a252f;
+            --gray-color: #95a5a6;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* --- Header --- */
+        header {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .branding {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-square {
+            border: 2px solid #ffffff;
+            padding: 10px 12px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .school-titles h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+            line-height: 1;
+        }
+
+        .school-titles span {
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .school-motto {
+            font-size: 0.7rem;
+            font-style: italic;
+            opacity: 0.9;
+            margin-top: 2px;
+        }
+
+        /* --- Hamburger Button --- */
+        .nav-toggle {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            z-index: 2000;
+            padding: 8px;
+        }
+
+        .nav-toggle div {
+            width: 25px;
+            height: 2px;
+            background-color: #ffffff;
+            transition: var(--transition);
+        }
+
+        .nav-toggle.active div:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .nav-toggle.active div:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav-toggle.active div:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        /* --- Floating Center Menu --- */
+        .menu-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1500;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+        }
+
+        .menu-card {
+            background: white;
+            width: 90%;
+            max-width: 400px;
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            text-align: center;
+            transform: translateY(30px) scale(0.95);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .menu-backdrop.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .menu-backdrop.show .menu-card {
+            transform: translateY(0) scale(1);
+        }
+
+        /* Menu Links */
+        .menu-card h3 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 25px;
+            color: var(--primary-color);
+            font-size: 1.8rem;
+        }
+
+        .menu-card a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            color: var(--dark-color);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 12px 0;
+            padding: 12px;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+        .menu-card a:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateX(5px);
+        }
+
+        /* --- Hero Section --- */
+        .hero-section {
+            background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(44, 62, 80, 0.9)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        /* --- Gallery Controls --- */
+        .gallery-controls {
+            max-width: 1400px;
+            margin: 40px auto 30px;
+            padding: 0 20px;
+        }
+
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .gallery-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+
+        .gallery-header p {
+            color: var(--gray-color);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .filter-btn {
+            padding: 12px 25px;
+            background-color: white;
+            border: 2px solid #e0e0e0;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--secondary-color);
+            transition: var(--transition);
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(158, 27, 50, 0.2);
+        }
+
+        .filter-count {
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-left: 5px;
+        }
+
+        /* --- Gallery Grid --- */
+        .gallery-container {
+            max-width: 1400px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .image-container {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            opacity: 0;
+            transition: var(--transition);
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+        }
+
+        .gallery-item:hover .image-overlay {
+            opacity: 1;
+        }
+
+        .image-quality {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
+
+        .image-info {
+            padding: 20px;
+        }
+
+        .image-info h3 {
+            color: var(--secondary-color);
+            margin-bottom: 8px;
+            font-size: 1.3rem;
+        }
+
+        .image-info p {
+            color: var(--gray-color);
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+        }
+
+        .image-date {
+            color: var(--primary-color);
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* --- Featured Gallery --- */
+        .featured-gallery {
+            max-width: 1400px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .featured-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .featured-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .featured-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            height: 300px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .featured-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .featured-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .featured-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .featured-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 25px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+        }
+
+        .featured-overlay h3 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        /* --- Modal for Image Viewing --- */
+        .image-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .image-modal.show {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            max-height: 80vh;
+            object-fit: contain;
+            display: block;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 3rem;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 2001;
+        }
+
+        .close-modal:hover {
+            color: var(--accent-color);
+            transform: rotate(90deg);
+        }
+
+        .modal-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 25px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-content:hover .modal-info {
+            transform: translateY(0);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 20px 30px;
+            margin-top: 80px;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 25px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-color);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-column p {
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-column ul li a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* --- Responsive Design --- */
+        @media (min-width: 768px) {
+            .school-motto {
+                display: blue;
+            }
+            
+            .hero-content h2 {
+                font-size: 4rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 70px 20px;
+            }
+            
+            .hero-content h2 {
+                font-size: 2.5rem;
+            }
+            
+            .gallery-header h2, .featured-header h2 {
+                font-size: 2rem;
+            }
+            
+            .filter-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .filter-btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+.content-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 10px 10px 0px var(--accent-gold);
+        }
+
+:root {
+      
+  --school-blue: #003366;
+   
+     --school-gold: #FFD700;
+       
+ --text-light: #ffffff;
+   
+ }
+
+    
+.stats-bar {
+    
+    background-color: var(--school-blue);
+    
+    padding: 40px 20px;
+        color: var(--text-light);
+    
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ 
+   }
+
+  
+  .stats-grid {
+        display: grid;
+   
+     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  
+      gap: 20px;
+       
+ max-width: 1200px;
+    
+    margin: 0 auto;
+    
+    text-align: center;
+  
+  }
+
+   
+ .stat-item {
+     
+   padding: 20px;
+      
+  border-bottom: 3px solid var(--school-gold);
+ 
+   }
+
+   
+ .stat-item h2 {
+    
+    font-size: 2.5rem;
+      
+  margin: 0;
+     
+   color: var(--school-gold);
+  
+  }
+
+  
+  .stat-item p {
+   
+
+     font-size: 1.1rem;
+   
+     text-transform: uppercase;
+     
+   letter-spacing: 1px;
+     
+   margin-top: 10px;
+    
+    font-weight: bold;
+ 
+   }
+
+
+.topbar {
+    /* Hii inaituliza juu kabisa ya screen */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Inahakikisha ipo juu ya picha na maandishi yote */
+    
+    /* Gradient ya Bendera ya Tanzania */
+    background: linear-gradient(to right, 
+        #1EB53A 0%, #1EB53A 35%, 
+        #FCD116 35%, #FCD116 40%, 
+        #000000 40%, #000000 60%, 
+        #FCD116 60%, #FCD116 65%, 
+        #00A3E0 65%, #00A3E0 100%);
+        
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 5%;
+    color: white;
+    font-size: 14px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3); /* Kivuli ili itokeze kidogo */
+}
+
+/* Muhimu: Kwa sababu Topbar sasa imeganda juu, 
+   lazima tuiambie Hero Section ishuke kidogo ili isifichwe */
+.hero-section {
+    margin-top: 45px; /* Inategemea urefu wa Top Bar yako */
+}
+
+/* Mapambo ya Links */
+.topbar a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.topbar a:hover {
+    color: #FCD116; /* Inang'aa kama dhahabu ukigusa */
+    text-shadow: 0 0 5px rgba(252, 209, 22, 0.5);
+}
+
+.topbar i {
+    color: #FCD116; /* Icon ziwe na rangi ya njano ya bendera */
+    margin-right: 5px;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%; /* Hii inaifanya section iwe kubwa na pana */
+    background-color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 40px; /* Inakaa chini ya Top Bar uliyotengeneza awali */
+    z-index: 998;
+}
+
+/* Muonekano wa Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo img {
+    height: 70px; /* Logo kubwa kidogo */
+    width: auto;
+}
+
+.logo span {
+    font-weight: 800;
+    font-size: 1.2rem;
+    line-height: 1.1;
+    color: #1a1a1a;
+    text-transform: uppercase;
+}
+
+.logo small {
+    font-size: 0.85rem;
+    color: #1EB53A; /* Rangi ya kijani ya Tanzania */
+    letter-spacing: 1px;
+}
+
+/* Menu Links */
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 5px 0;
+}
+
+/* Efekti ya mstari wa kijani/dhahabu ukigusa link */
+.nav-item::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background-color: #FCD116; /* Dhahabu */
+    transition: width 0.3s ease;
+}
+
+.nav-item:hover::after {
+    width: 100%;
+}
+
+.nav-item:hover {
+    color: #1EB53A; /* Kijani */
+}
+
+/* Kitufe cha Join (Button) */
+.join-btn {
+    background-color: #00A3E0; /* Bluu ya Tanzania */
+    color: white;
+    padding: 12px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 163, 224, 0.3);
+    border: 2px solid transparent;
+}
+
+.join-btn:hover {
+    background-color: white;
+    color: #00A3E0;
+    border: 2px solid #00A3E0;
+    transform: translateY(-3px); /* Inajinyanyua kidogo */
+}
+.join-btn {
+    animation: pulse-animation 2s infinite;
+}
+
+@keyframes pulse-animation {
+    0% {
+        box-shadow: 0 0 0 0px rgba(0, 163, 224, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(0, 163, 224, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0px rgba(0, 163, 224, 0);
+    }
+}
+
+
+    </style>
+</head>
+<body>
+
+<div class="topbar tz-topbar">
+    <div class="contact-info">
+        <i class="fa fa-phone"></i> +255 755 297 005
+        &nbsp;&nbsp;
+        <i class="fa fa-envelope"></i> Nyamwigura-2012@yahoo.com
+    </div>
+
+    <div class="topbar-links">
+        <a href="#">Alumni Portal</a>
+        <a href="#">Administration</a>
+        <a href="#">Admin Login</a>
+    </div>
+</div>
+
+<nav class="navbar">
+    <div class="logo">
+        <img src="nembo.jfif" alt="Logo">
+        <span>NYAMWIGURA<br><small>SECONDARY SCHOOL</small></span>
+    </div>
+
+    <div class="nav-links">
+        <a href="#" class="nav-item">Home</a>
+        <a href="academ.html" class="nav-item">Academics</a>
+        <a href="matangazo.html" class="nav-item">News & Events</a>
+        <a href="studentlife.html" class="nav-item">Student Life</a>
+        <a href="nipigie.html" class="nav-item">Contact</a>
+        <a href="#" class="nav-item">About</a>
+    </div>
+
+    <div class="nav-actions">
+    <a class="join-btn" 
+       href="https://tanzania.go.tz/egov_uploads/documents/JOINING_INSTRUCTIONS_sw.pdf" 
+       target="_blank">
+       Get Joining Instructions
+    </a>
+</div>
+</nav>
+
+ 
+<section class="hero-section">
+    <div class="tz-background-colors"></div>
+    
+    <div class="hero-slider">
+  
+</div>
+    
+    <div class="hero-content">
+
+
+        <div class="hero-border-box">
+            <h2>NYAMWIGURA Photo Gallery</h2>
+            <p>View high-quality photos of school life, student activities, and various events taking place at our school.</p>
+        </div>
+    </div>
+</section>
+
+<section class="stats-bar">
+   
+ <div class="stats-grid">
+    
+    <div class="stat-item">
+     
+       <h2 class="counter" data-target="15">30</h2>
+     
+       <p>Qualified Teachers</p>
+      
+  </div>
+     
+   <div class="stat-item">
+      
+      <h2 class="counter" data-target="800">300</h2>
+    
+        <p>Current Students</p>
+      
+  </div>
+       
+ <div class="stat-item">
+          
+  <h2>S4898</h2>
+          
+  <p>School Reg No.</p>
+      
+  </div>
+     
+   <div class="stat-item">
+ 
+           <h2 class="counter" data-target="100">100%</h2>
+    
+        <p>Percentage Dedication</p>
+     
+   </div>
+  
+  </div>
+
+</section>
+
+
+    <section class="gallery-controls" id="gallery">
+        <div class="gallery-header">
+            <h2>School Life Photos</h2>
+            <p>All photos are taken in high quality (HD and 4K) and arranged in a modern, attractive way. Select the type of photos you want to view.</p>
+        </div>
+        
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">
+                <i class="fas fa-th"></i> All Photos <span class="filter-count" id="count-all">15</span>
+            </button>
+            <button class="filter-btn" data-filter="academic">
+                <i class="fas fa-graduation-cap"></i> Academics <span class="filter-count" id="count-academic">5</span>
+            </button>
+            <button class="filter-btn" data-filter="sports">
+                <i class="fas fa-running"></i> Sports <span class="filter-count" id="count-sports">4</span>
+            </button>
+            <button class="filter-btn" data-filter="events">
+                <i class="fas fa-calendar-check"></i> Events <span class="filter-count" id="count-events">3</span>
+            </button>
+            <button class="filter-btn" data-filter="campus">
+                <i class="fas fa-school"></i> Campus <span class="filter-count" id="count-campus">3</span>
+            </button>
+        </div>
+    </section>
+
+    <section class="gallery-container">
+        <div class="gallery-grid" id="galleryGrid">
+            <!-- Gallery items will be loaded by JavaScript -->
+        </div>
+    </section>
+
+    <section class="featured-gallery">
+        <div class="featured-header">
+            <h2>Selected Photos</h2>
+            <p>The best photos selected by our photography experts.</p>
+        </div>
+        
+        <div class="featured-grid" id="featuredGrid">
+            <!-- Featured items will be loaded by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Image Modal -->
+    <div class="image-modal" id="imageModal">
+        <span class="close-modal" id="closeModal">&times;</span>
+        <div class="modal-content">
+            <img id="modalImage" src="" alt="Large Photo">
+            <div class="modal-info">
+                <h3 id="modalTitle"></h3>
+                <p id="modalDescription"></p>
+                <div id="modalDate" class="image-date"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Nyamwigura Secondary School</h3>
+                <p>A Nyamwigura secondary school providing quality academic and moral education since 1975.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Important Links</h3>
+                <ul>
+                    <li><a href="https://kahox.wuaze.com/?i=1">Home</a></li>
+                    <li><a href="https://kahox.wuaze.com/pic.html">Photo Gallery</a></li>
+                    <li><a href="https://kahox.wuaze.com/about.html">About School</a></li>
+                   
+                    <li><a href="https://kahox.wuaze.com/staff.html">Teachers</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> Nyamwigura, Mara Region</li>
+                    <li><i class="fas fa-phone"></i> +255 789 123 456</li>
+                    <li><i class="fas fa-envelope"></i> info@Nyamwigurass.ac.tz</li>
+                    <li><i class="fas fa-clock"></i> Monday - Friday: 7:30 AM - 4:30 PM</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Upcoming Events</h3>
+                <ul>
+                    <li><a href="#">School's 50th Anniversary Celebration</a></li>
+                    <li><a href="#">Basketball Competition</a></li>
+                    <li><a href="#">Art and Culture Festival</a></li>
+                    <li><a href="#">New Academic Year</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Nyamwigura Secondary School. All rights reserved. | <a href="#" style="color: #aaa;">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Gallery data
+        const galleryData = [
+            {
+                id: 1,
+                title: "Laboratory Exercises",
+                category: "academic",
+                description: "Students conducting chemistry experiments in the school's modern laboratory",
+                date: "April 15, 2023",
+                quality: "4K ULTRA HD",
+                imageUrl: "https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                featured: true
+            },
+            {
+                id: 2,
+                title: "Athletics Competition",
+                category: "sports",
+                description: "Students running short races in the district athletics competition",
+                date: "March 28, 2023",
+                quality: "FULL HD",
+                imageUrl: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                featured: true
+            },
+            {
+                id: 3,
+                title: "Classroom During Lesson",
+                category: "academic",
+                description: "Students listening to their teacher during a physics lesson",
+                date: "May 5, 2023",
+                quality: "4K ULTRA HD",
+                imageUrl: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                featured: false
+            },
+            {
+                id: 4,
+                title: "New Project Launch Ceremony",
+                category: "events",
+                description: "The Minister of Education launching a new computer laboratory construction project",
+                date: "February 10, 2023",
+                quality: "FULL HD",
+                imageUrl: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                featured: false
+            },
+            {
+                id: 5,
+                title: "New Basketball Court",
+                category: "campus",
+                description: "The new basketball court recently built at the school",
+                date: "January 22, 2023",
+                quality: "4K ULTRA HD",
+                imageUrl: "https://images.unsplash.com/photo-1546519638-68e109498ffc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                featured: true
+            },
+            {
+                id: 6,
+                title: "Morning Assembly",
+                category: "academic",
+                description: "Daily morning assembly of students before classes begin",
+                date: "April 3, 2023",
+                quality: "FULL HD",
+                imageUrl: "https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                featured: false
+            },
+            {
+                id: 7,
+                title: "Football Games",
+                category: "sports",
+                description: "School team playing a football match against a neighboring school",
+                date: "March 15, 2023",
+                quality: "4K ULTRA HD",
+                imageUrl: "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                featured: false
+            },
+            {
+                id: 8,
+                title: "Science Building",
+                category: "campus",
+                description: "Newly completed science building this year",
+                date: "February 5, 2023",
+                quality: "FULL HD",
+                imageUrl: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                featured: false
+            },
+            {
+                id: 9,
+                title: "Art Festival",
+                category: "events",
+                description: "Students showcasing their drawing and design skills at the art festival",
+                date: "November 20, 2022",
+                quality: "4K ULTRA HD",
+                imageUrl: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                featured: false
+            },
+            {
+                id: 10,
+                title: "Choir Practice",
+                category: "events",
+                description: "School choir practicing for the music festival",
+                date: "October 12, 2022",
+                quality: "FULL HD",
+                imageUrl: "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                featured: true
+            },
+            {
+                id: 11,
+                title: "Modern Library",
+                category: "academic",
+                description: "The school's new library with modern books and learning computers",
+                date: "September 8, 2022",
+                quality: "4K ULTRA HD",
+                imageUrl: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                featured: false
+            },
+            {
+                id: 12,
+                title: "Rugby Games",
+                category: "sports",
+                description: "School rugby team practicing on their field",
+                date: "August 25, 2022",
+                quality: "FULL HD",
+                imageUrl: "https://images.unsplash.com/photo-1551958219-acbc608c6377?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                featured: false
+            },
+            {
+                id: 13,
+                title: "Dormitory Construction",
+                category: "campus",
+                description: "Ongoing construction of new student dormitory",
+                date: "July 30, 2022",
+                quality: "4K ULTRA HD",
+                imageUrl: "https://images.unsplash.com/photo-1542744095-fcf48d80b0fd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                featured: false
+            },
+            {
+                id: 14,
+                title: "Computer Training",
+                category: "academic",
+                description: "Students undergoing computer software training in the ICT lab",
+                date: "June 18, 2022",
+                quality: "FULL HD",
+                imageUrl: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                featured: false
+            },
+            
+ 
+       ];
+
+        // DOM Elements
+        const menuBtn = document.getElementById('menuBtn');
+        const menuBackdrop = document.getElementById('menuBackdrop');
+        const galleryGrid = document.getElementById('galleryGrid');
+        const featuredGrid = document.getElementById('featuredGrid');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const imageModal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDescription = document.getElementById('modalDescription');
+        const modalDate = document.getElementById('modalDate');
+        const closeModal = document.getElementById('closeModal');
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            initGallery();
+            initMenu();
+            updateFilterCounts();
+        });
+
+        // Menu functionality
+        function initMenu() {
+            menuBtn.addEventListener('click', (e) => {
+                menuBackdrop.classList.toggle('show');
+                menuBtn.classList.toggle('active');
+                e.stopPropagation();
+            });
+
+            document.querySelectorAll('.menu-card a').forEach(link => {
+                link.addEventListener('click', () => {
+                    menuBackdrop.classList.remove('show');
+                    menuBtn.classList.remove('active');
+                });
+            });
+
+            window.addEventListener('click', (e) => {
+                if (e.target === menuBackdrop) {
+                    menuBackdrop.classList.remove('show');
+                    menuBtn.classList.remove('active');
+                }
+            });
+        }
+
+        // Gallery functionality
+        function initGallery() {
+            renderGalleryItems(galleryData);
+            renderFeaturedItems();
+            
+            // Add event listeners to filter buttons
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    button.classList.add('active');
+                    
+                    // Filter gallery items
+                    const filter = button.getAttribute('data-filter');
+                    if (filter === 'all') {
+                        renderGalleryItems(galleryData);
+                    } else {
+                        const filteredData = galleryData.filter(item => item.category === filter);
+                        renderGalleryItems(filteredData);
+                    }
+                });
+            });
+            
+            // Close modal when clicking close button
+            closeModal.addEventListener('click', () => {
+                imageModal.classList.remove('show');
+            });
+            
+            // Close modal when clicking outside the image
+            imageModal.addEventListener('click', (e) => {
+                if (e.target === imageModal) {
+                    imageModal.classList.remove('show');
+                }
+            });
+            
+            // Close modal with Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && imageModal.classList.contains('show')) {
+                    imageModal.classList.remove('show');
+                }
+            });
+        }
+
+        // Render gallery items
+        function renderGalleryItems(items) {
+            galleryGrid.innerHTML = '';
+            
+            items.forEach(item => {
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'gallery-item';
+                galleryItem.setAttribute('data-category', item.category);
+                
+                galleryItem.innerHTML = `
+                    <div class="image-container">
+                        <img src="${item.imageUrl}" alt="${item.title}" loading="lazy">
+                        <div class="image-overlay"></div>
+                        <span class="image-quality">${item.quality}</span>
+                    </div>
+                    <div class="image-info">
+                        <h3>${item.title}</h3>
+                        <p>${item.description}</p>
+                        <div class="image-date">
+                            <i class="far fa-calendar-alt"></i> ${item.date}
+                        </div>
+                    </div>
+                `;
+                
+                // Add click event to open image in modal
+                galleryItem.addEventListener('click', () => {
+                    modalImage.src = item.imageUrl;
+                    modalImage.alt = item.title;
+                    modalTitle.textContent = item.title;
+                    modalDescription.textContent = item.description;
+                    modalDate.innerHTML = `<i class="far fa-calendar-alt"></i> ${item.date}`;
+                    imageModal.classList.add('show');
+                });
+                
+                galleryGrid.appendChild(galleryItem);
+            });
+        }
+
+        // Render featured items
+        function renderFeaturedItems() {
+            featuredGrid.innerHTML = '';
+            
+            const featuredItems = galleryData.filter(item => item.featured);
+            
+            featuredItems.forEach(item => {
+                const featuredItem = document.createElement('div');
+                featuredItem.className = 'featured-item';
+                
+                featuredItem.innerHTML = `
+                    <img src="${item.imageUrl}" alt="${item.title}">
+                    <div class="featured-overlay">
+                        <h3>${item.title}</h3>
+                        <p>${item.description}</p>
+                    </div>
+                `;
+                
+                // Add click event to open image in modal
+                featuredItem.addEventListener('click', () => {
+                    modalImage.src = item.imageUrl;
+                    modalImage.alt = item.title;
+                    modalTitle.textContent = item.title;
+                    modalDescription.textContent = item.description;
+                    modalDate.innerHTML = `<i class="far fa-calendar-alt"></i> ${item.date}`;
+                    imageModal.classList.add('show');
+                });
+                
+                featuredGrid.appendChild(featuredItem);
+            });
+        }
+
+        // Update filter counts
+        function updateFilterCounts() {
+            document.getElementById('count-all').textContent = galleryData.length;
+            document.getElementById('count-academic').textContent = galleryData.filter(item => item.category === 'academic').length;
+            document.getElementById('count-sports').textContent = galleryData.filter(item => item.category === 'sports').length;
+            document.getElementById('count-events').textContent = galleryData.filter(item => item.category === 'events').length;
+            document.getElementById('count-campus').textContent = galleryData.filter(item => item.category === 'campus').length;
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

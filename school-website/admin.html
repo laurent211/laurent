@@ -1,0 +1,77 @@
+
+
+
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <title>Laurent Admin Panel</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: sans-serif; margin: 0; display: flex; background: #f0f2f5; }
+        .sidebar { width: 250px; background: #1a1a2e; color: white; height: 100vh; position: fixed; padding: 20px; }
+        .content { margin-left: 250px; flex: 1; padding: 30px; }
+        .card { background: white; padding: 20px; border-radius: 10px; margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        h1, h2 { color: #333; }
+        textarea { width: 100%; height: 80px; margin: 10px 0; padding: 10px; border-radius: 5px; border: 1px solid #ccc; }
+        .btn { padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; color: white; }
+        .btn-post { background: #3498db; }
+        .btn-reply { background: #e67e22; }
+        .msg-item { border-left: 5px solid #27ae60; background: #f9f9f9; padding: 15px; margin-bottom: 15px; }
+        .success-msg { background: #d4edda; color: #155724; padding: 10px; border-radius: 5px; margin-bottom: 15px; }
+    </style>
+</head>
+<body>
+
+<div class="sidebar">
+    <h2>Laurent Admin</h2>
+    <hr style="opacity: 0.2">
+    <p>Habari, <b><?php echo $_SESSION['admin_user']; ?></b></p>
+    <ul style="list-style:none; padding:0;">
+        <li style="margin-bottom:20px;"><a href="#" style="color:white; text-decoration:none;">?? Dashboard</a></li>
+        <li style="margin-bottom:20px;"><a href="#messages" style="color:white; text-decoration:none;">?? Meseji</a></li>
+        <li style="margin-bottom:20px;"><a href="#ads" style="color:white; text-decoration:none;">?? Matangazo</a></li>
+        <li style="margin-top:50px;"><a href="logout.php" style="color:#ff4d4d; text-decoration:none;">?? Logout</a></li>
+    </ul>
+</div>
+
+<div class="content">
+    <?php if(isset($success)) echo "<div class='success-msg'>$success</div>"; ?>
+
+    <div id="messages" class="card">
+        <h2>?? Ujumbe Kutoka kwa Wateja</h2>
+        <?php
+        $res = $conn->query("SELECT * FROM messages WHERE reply IS NULL ORDER BY id DESC");
+        if($res->num_rows > 0) {
+            while($row = $res->fetch_assoc()) {
+                echo "<div class='msg-item'>";
+                echo "<strong>Kutoka: " . $row['sender_name'] . "</strong><br>";
+                echo "<p>" . $row['message'] . "</p>";
+                echo "<form method='POST'>
+                        <input type='hidden' name='msg_id' value='".$row['id']."'>
+                        <textarea name='reply_content' placeholder='Andika jibu hapa...' required></textarea><br>
+                        <button type='submit' name='reply_msg' class='btn btn-reply'>Tuma Jibu</button>
+                      </form>";
+                echo "</div>";
+            }
+        } else { echo "<p>Hakuna ujumbe mpya kwa sasa.</p>"; }
+        ?>
+    </div>
+
+    <div id="ads" class="card">
+        <h2>?? Ongeza Tangazo Jipya</h2>
+        <form method="POST">
+            <input type="text" name="ad_title" placeholder="Kichwa cha Tangazo" style="width:100%; padding:10px; margin-bottom:10px;" required>
+            <textarea name="ad_content" placeholder="Maelezo kamili ya tangazo..." required></textarea>
+            <button type="submit" name="post_ad" class="btn btn-post">Sajili Tangazo</button>
+        </form>
+    </div>
+
+    <div class="card" style="background: #eef2f3; border: 1px dashed #7f8c8d;">
+        <h3>??? Badilisha Source Code</h3>
+        <p>Ili kulekebisha kodi za msingi (HTML/PHP), unapaswa kutumia <b>File Manager</b> ya CPanel yako au <b>VS Code</b> kupitia FTP. Kuhariri kodi moja kwa moja hapa kunaweza kuharibu mfumo wako (Crash).</p>
+    </div>
+</div>
+
+</body>
+</html>

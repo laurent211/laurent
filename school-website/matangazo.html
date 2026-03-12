@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habari na Matukio | Tanzania</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Background ya Bendera ya Tanzania */
+        .tz-gradient {
+            background: linear-gradient(135deg, 
+                #1EB53A 0%, #1EB53A 35%, 
+                #FCD116 35%, #FCD116 40%, 
+                #000000 40%, #000000 60%, 
+                #FCD116 60%, #FCD116 65%, 
+                #00A3E0 65%, #00A3E0 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+
+    <header class="tz-gradient py-16 text-center text-white shadow-lg">
+        <h1 class="text-4xl md:text-6xl font-black uppercase tracking-widest drop-shadow-md">
+            Habari & Matukio
+        </h1>
+        <p class="mt-2 text-lg font-medium bg-black/30 inline-block px-4 py-1 rounded">
+            Kituo chako cha habari za uhakika nchini Tanzania
+        </p>
+    </header>
+
+    <main class="container mx-auto px-4 py-10">
+        
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold border-l-8 border-green-600 pl-4 mb-8">Habari za Hivi Punde</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl shadow-md overflow-hidden hover:scale-105 transition">
+                    <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad" class="h-48 w-full object-cover">
+                    <div class="p-5">
+                        <span class="text-blue-600 font-bold text-sm">JAMII</span>
+                        <h3 class="text-xl font-bold mt-2">Maendeleo ya Teknolojia Dar es Salaam</h3>
+                        <p class="text-gray-600 mt-2">Gundua jinsi vijana wanavyobadili uchumi wa kidijitali...</p>
+                    </div>
+                </div>
+                </div>
+        </section>
+
+        <hr class="border-gray-300 my-10">
+
+
+        <section id="admin-panel" class="bg-white border-2 border-dashed border-black rounded-2xl p-8 shadow-2xl">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="text-2xl font-black text-black">??? ADMIN DASHBOARD</h2>
+                <button class="bg-black text-white px-6 py-2 rounded-full font-bold hover:bg-gray-800">Tuma Habari Mpya</button>
+            </div>
+<div id="news-form-container" class="mb-12 bg-gray-50 p-6 rounded-xl border border-gray-200 hidden">
+    <div class="flex justify-between items-center mb-6">
+        <h3 class="text-xl font-bold text-green-800 uppercase italic">?? Andaa Habari Mpya</h3>
+        <button onclick="toggleForm()" class="text-red-500 font-bold hover:underline text-sm uppercase">Funga Fomu</button>
+    </div>
+    
+    <form id="postNewsForm" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="col-span-2 md:col-span-1">
+            <label class="block text-sm font-bold mb-2">Kichwa cha Habari (Title)</label>
+            <input type="text" id="newsTitle" required 
+                class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500 outline-none" 
+                placeholder="Mfano: Uzinduzi wa Mradi wa Maji...">
+        </div>
+
+        <div class="col-span-2 md:col-span-1">
+            <label class="block text-sm font-bold mb-2">Jina la Mwandishi (Admin Name)</label>
+            <input type="text" id="adminAuthor" required 
+                class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500 outline-none" 
+                placeholder="Jina lako...">
+        </div>
+
+        <div class="col-span-2">
+            <label class="block text-sm font-bold mb-2">Maelezo Kamili (News Content)</label>
+            <textarea id="newsContent" rows="4" required 
+                class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500 outline-none" 
+                placeholder="Andika habari yako hapa kwa kina..."></textarea>
+        </div>
+
+        <div class="col-span-2 md:col-span-1">
+            <label class="block text-sm font-bold mb-2">Kiungo cha Picha (Image URL)</label>
+            <input type="url" id="imageUrl" 
+                class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-green-500 outline-none" 
+                placeholder="https://mfano.com/picha.jpg">
+        </div>
+
+        <div class="col-span-2">
+            <button type="submit" 
+                class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-lg shadow-md transition-all uppercase tracking-wider">
+                ?? Chapisha Habari Sasa
+            </button>
+        </div>
+    </form>
+</div>
+            
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-gray-100">
+                            <th class="p-4 border">ID</th>
+                            <th class="p-4 border">Kichwa cha Habari</th>
+                            <th class="p-4 border">Mwandishi (Admin)</th>
+                            <th class="p-4 border">Tarehe</th>
+                            <th class="p-4 border">Hali</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin-news-list">
+                        <tr class="hover:bg-yellow-50">
+                            <td class="p-4 border font-bold">#001</td>
+                            <td class="p-4 border">Uzinduzi wa Daraja la Tanzanite</td>
+                            <td class="p-4 border">Admin_Bakari</td>
+                            <td class="p-4 border">11/03/2026</td>
+                            <td class="p-4 border"><span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs">Imechapiwa</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-black text-white py-6 text-center mt-20">
+        <p>© 2026 Tanzania News Hub. Uzalendo Kwanza.</p>
+    </footer>
+<script>
+    const loginOverlay = document.getElementById('login-overlay');
+    const adminPanel = document.getElementById('admin-panel');
+    const loginForm = document.getElementById('adminLoginForm');
+
+ 
+ 
+
+
+    // Tengeneza Row mpya ya Jedwali
+    const tableBody = document.getElementById('admin-news-list');
+    const newRow = `
+        <tr class="hover:bg-yellow-50 bg-green-50 animate-pulse">
+            <td class="p-4 border font-bold">#${id}</td>
+            <td class="p-4 border">${title}</td>
+            <td class="p-4 border">${author}</td>
+            <td class="p-4 border">${date}</td>
+            <td class="p-4 border"><span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">Mpya (Admin)</span></td>
+        </tr>
+    `;
+
+    // Ongeza habari kwenye jedwali juu kabisa
+    tableBody.insertAdjacentHTML('afterbegin', newRow);
+
+    // Safisha fomu na uifiche
+    alert("Hongera! Habari yako imechapishwa kikamilifu.");
+    this.reset();
+    toggleForm();
+});
+</script>
+
+</body>
+</html>
